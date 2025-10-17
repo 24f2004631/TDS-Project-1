@@ -177,13 +177,14 @@ def LLMCode(requestData: Request, existingFiles: Dict) -> List[Dict[str, str]]:
     
     # System instruction to force JSON output
     systemInstruction = "You must return a single, well-formed JSON array of file objects. Do not include any text outside the JSON block."
-
+    
+    context_joined = '\n'.join(contextSection)
     fullPrompt = (
         f"You are an expert web developer creating an app for task '{requestData.task}'. "
         f"Your current round is {requestData.round}. "
         f"The primary goal is to **{requestData.brief}**. "
         f"The final files must satisfy these checks: {requestData.checks}. "
-        f"{'\n'.join(contextSection)}"
+        f"{context_joined}"
         f"\n\nReturn a JSON array of objects. Each object must have a 'name' (filename, e.g., 'index.html', 'LICENSE') "
         f"and 'content' (the file's raw, unencoded string content). "
         f"For Round 1, include 'LICENSE' (MIT) and 'README.md'. For Round 2, only include modified or new files."
