@@ -1,14 +1,3 @@
-# /// script
-# requires-python = ">=3.11"
-# dependencies = [
-#   "fastapi[standard]",
-#   "uvicorn",
-#   "requests",
-#   "google-genai",
-#   "pydantic",
-# ]
-# ///
-
 import os
 import json
 import time
