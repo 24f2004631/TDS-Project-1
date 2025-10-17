@@ -328,6 +328,6 @@ async def HandleTask(requestData: Request, backgroundTasks: BackgroundTasks):
         "message": "Your request is being processed in the background."
     }
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run(app, host="0.0.0.0", port=8000)
